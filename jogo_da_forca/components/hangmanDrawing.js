@@ -1,153 +1,156 @@
-// Base da forca
-export const Base = () => (
+// Estilos da forca
+const GALLOWS_STYLES = {
+  base: {
+    position: 'absolute',
+    bottom: 0,
+    left: '10px',
+    width: '80px',
+    height: '8px',
+    backgroundColor: '#8B4513'
+  },
+  pole: {
+    position: 'absolute',
+    bottom: '8px',
+    left: '20px',
+    width: '8px',
+    height: '180px',
+    backgroundColor: '#8B4513'
+  },
+  top: {
+    position: 'absolute',
+    top: '10px',
+    left: '20px',
+    width: '120px',
+    height: '8px',
+    backgroundColor: '#8B4513'
+  },
+  noose: {
+    position: 'absolute',
+    top: '18px',
+    left: '135px',
+    width: '3px',
+    height: '25px',
+    backgroundColor: '#654321'
+  }
+};
+
+// Componentes das partes do corpo
+const Head = () => (
   <div style={{
-    height: "10px",
-    width: "100%",
-    backgroundColor: "black",
-    position: "absolute",
-    bottom: "50px"
+    width: '25px',
+    height: '25px',
+    border: '3px solid #333',
+    borderRadius: '50%',
+    position: 'absolute',
+    top: '43px',
+    left: '122px'
   }} />
 );
 
-// Linha vertical principal
-export const VerticalLine = () => (
+const Body = () => (
   <div style={{
-    height: "250px",
-    width: "10px",
-    backgroundColor: "black",
-    position: "absolute",
-    left: "50px",
-    top: 0
+    width: '3px',
+    height: '50px',
+    backgroundColor: '#333',
+    position: 'absolute',
+    top: '71px',
+    left: '134px'
   }} />
 );
 
-// Linha horizontal superior
-export const HorizontalLine = () => (
+const LeftArm = () => (
   <div style={{
-    height: "10px",
-    width: "150px",
-    backgroundColor: "black",
-    position: "absolute",
-    left: "50px",
-    top: 0
+    width: '25px',
+    height: '3px',
+    backgroundColor: '#333',
+    position: 'absolute',
+    top: '85px',
+    left: '109px',
+    transform: 'rotate(30deg)',
+    transformOrigin: 'right center'
   }} />
 );
 
-// Linha vertical pequena (corda)
-export const VerticalLineSmall = () => (
+const RightArm = () => (
   <div style={{
-    height: "45px",
-    width: "10px",
-    backgroundColor: "black",
-    position: "absolute",
-    left: "190px",
-    top: "10px"
+    width: '25px',
+    height: '3px',
+    backgroundColor: '#333',
+    position: 'absolute',
+    top: '85px',
+    left: '137px',
+    transform: 'rotate(-30deg)',
+    transformOrigin: 'left center'
   }} />
 );
 
-// Cabeça
-export const Head = () => (
+const LeftLeg = () => (
   <div style={{
-    width: "40px",
-    height: "40px",
-    borderRadius: "50%",
-    border: "5px solid black",
-    position: "absolute",
-    top: "50px",
-    left: "170px"
+    width: '25px',
+    height: '3px',
+    backgroundColor: '#333',
+    position: 'absolute',
+    top: '115px',
+    left: '109px',
+    transform: 'rotate(-30deg)',
+    transformOrigin: 'right center'
   }} />
 );
 
-// Corpo
-export const Body = () => (
+const RightLeg = () => (
   <div style={{
-    width: "10px",
-    height: "70px",
-    backgroundColor: "black",
-    position: "absolute",
-    top: "95px",
-    left: "190px"
+    width: '25px',
+    height: '3px',
+    backgroundColor: '#333',
+    position: 'absolute',
+    top: '115px',
+    left: '137px',
+    transform: 'rotate(30deg)',
+    transformOrigin: 'left center'
   }} />
 );
 
-// Braço esquerdo
-export const LeftArm = () => (
-  <div style={{
-    width: "50px",
-    height: "10px",
-    backgroundColor: "black",
-    position: "absolute",
-    top: "100px",
-    left: "145px",
-    transform: "rotate(-45deg)",
-    transformOrigin: "right center"
-  }} />
-);
+// Configuração das partes do corpo
+const BODY_PARTS = [
+  { component: Head, minGuesses: 1 },
+  { component: Body, minGuesses: 2 },
+  { component: LeftArm, minGuesses: 3 },
+  { component: RightArm, minGuesses: 4 },
+  { component: LeftLeg, minGuesses: 5 },
+  { component: RightLeg, minGuesses: 6 }
+];
 
-// Braço direito
-export const RightArm = () => (
-  <div style={{
-    width: "50px",
-    height: "10px",
-    backgroundColor: "black",
-    position: "absolute",
-    top: "100px",
-    left: "195px",
-    transform: "rotate(45deg)",
-    transformOrigin: "left center"
-  }} />
-);
-
-// Perna esquerda
-export const LeftLeg = () => (
-  <div style={{
-    width: "50px",
-    height: "10px",
-    backgroundColor: "black",
-    position: "absolute",
-    top: "155px",
-    left: "145px",
-    transform: "rotate(-45deg)",
-    transformOrigin: "right center"
-  }} />
-);
-
-// Perna direita
-export const RightLeg = () => (
-  <div style={{
-    width: "50px",
-    height: "10px",
-    backgroundColor: "black",
-    position: "absolute",
-    top: "155px",
-    left: "195px",
-    transform: "rotate(45deg)",
-    transformOrigin: "left center"
-  }} />
-);
-
+// Componente HangmanDrawing
 export function HangmanDrawing({ numberOfGuesses = 0 }) {
   return (
-    <div 
-      style={{ 
-        position: "relative",
-        width: "250px",
-        height: "300px",
-        margin: "0 auto",
-      }}>
+    <div style={{ 
+      margin: '20px 0', 
+      position: 'relative', 
+      width: '200px', 
+      height: '200px',
+      borderRadius: '8px',
+    }}>
       {/* Estrutura da forca */}
-      <Base />
-      <VerticalLine />
-      <HorizontalLine />
-      <VerticalLineSmall />
-
+      <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+        {/* Base */}
+        <div style={GALLOWS_STYLES.base} />
+        
+        {/* Poste vertical */}
+        <div style={GALLOWS_STYLES.pole} />
+        
+        {/* Viga horizontal */}
+        <div style={GALLOWS_STYLES.top} />
+        
+        {/* Corda */}
+        <div style={GALLOWS_STYLES.noose} />
+      </div>
+      
       {/* Partes do corpo */}
-      {/* <Head />
-      <Body />
-      <LeftArm />
-      <RightArm />
-      <LeftLeg />
-      <RightLeg /> */}
+      <div>
+        {BODY_PARTS.map(({ component: Component, minGuesses }, index) => 
+          numberOfGuesses >= minGuesses ? <Component key={index} /> : null
+        )}
+      </div>
     </div>
-  )
+  );
 }
