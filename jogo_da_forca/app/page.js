@@ -136,7 +136,7 @@ export default function Home() {
 
       {/* Debug info (remover em produção) */}
       <div style={{ marginTop: '20px', fontSize: '12px', color: '#666' }}>
-        <p>Palavra secreta: {secretWord}</p>
+        {/* <p>Palavra secreta: {secretWord}</p> */}
         <p>Letras tentadas: {guessedLetters.join(', ')}</p>
         <p>Letras corretas: {correctLetters.join(', ')}</p>
         <p>Letras incorretas: {incorrectLetters.join(', ')}</p>
