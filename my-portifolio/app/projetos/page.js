@@ -4,7 +4,7 @@ import GitHubRepos from '@/components/GitHubRepos';
 export default function Projetos() {
   const projetosDestaque = [
     {
-      titulo: 'https://github.com/owleyes62/To-chiQ-E_commerce-',
+      titulo: 'To-chiQ-E_commerce',
       descricao: 'Plataforma completa de e-commerce com carrinho de compras, sistema de pagamentos integrado e painel administrativo para gerenciamento de produtos e pedidos.',
       tecnologias: ['Python', 'Django', 'MongoDB'],
       imagem: '🛒',

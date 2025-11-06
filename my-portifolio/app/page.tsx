@@ -56,13 +56,13 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
               <div className="bg-slate-800/50 backdrop-blur-md p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl hover:scale-105 transition">
                 <Code className="w-12 h-12 mx-auto mb-4 text-blue-400" />
-                <h3 className="text-3xl font-bold mb-2">3+ Anos</h3>
+                <h3 className="text-3xl font-bold mb-2">2+ Anos</h3>
                 <p className="text-gray-400">Experiência em Desenvolvimento</p>
               </div>
     
               <div className="bg-slate-800/50 backdrop-blur-md p-8 rounded-2xl shadow-lg text-center hover:shadow-2xl hover:scale-105 transition">
                 <Folder className="w-12 h-12 mx-auto mb-4 text-purple-400" />
-                <h3 className="text-3xl font-bold mb-2">5+ Projetos</h3>
+                <h3 className="text-3xl font-bold mb-2">3+ Projetos</h3>
                 <p className="text-gray-400">Desenvolvidos</p>
               </div>
     
